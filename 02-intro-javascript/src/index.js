@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { heroes } from './data/heroes';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,20 +16,13 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-const nombre = 'Paulo';
-const apellido = 'Trujillo'
+const getHeroeById = (id) => heroes.find( (heroe) => heroe.id === id);
 
-const nombreCompleto = `${nombre} ${apellido}`;
+const getHeroeByName = (name) => heroes.find( (heroe) => heroe.name === name );
 
-console.log(nombreCompleto);
+const getHeroesByOwner = (owner) => heroes.filter( (heroe) => heroe.owner === owner );
 
-function getSaludo(nombre){
-  return 'Hola ' + nombre ;
-}
-
-console.log(`Este es un texto: ${getSaludo('Pauhliño Dos Santos')}`);
-
-
-
-
+console.log( getHeroeById(4) );
+console.log( getHeroeByName('Gualguarin') );
+console.log( getHeroesByOwner('Marvel') );
 
